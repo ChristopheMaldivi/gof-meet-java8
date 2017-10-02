@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 
-class Observable {
+class MyObservable {
 
   interface EventListener {
     void onEvent();

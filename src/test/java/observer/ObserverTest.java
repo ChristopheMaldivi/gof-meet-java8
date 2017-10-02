@@ -17,8 +17,8 @@ public class ObserverTest {
   public void listener_is_called_when_event_occurs() {
     // given
     final Boolean[] called = new Boolean[1];
-    Observable observable = new Observable();
-    Observable.EventListener listener = () -> called[0] = true;
+    MyObservable observable = new MyObservable();
+    MyObservable.EventListener listener = () -> called[0] = true;
 
     observable.register(listener);
 
@@ -33,7 +33,7 @@ public class ObserverTest {
   public void date_listener_is_called_when_event_occurs() {
     // given
     final Date date = new Date(0);
-    Observable observable = new Observable();
+    MyObservable observable = new MyObservable();
     Consumer<Date> listener = (d) -> date.setTime(d.getTime());
 
     observable.registerDateListener(listener);
