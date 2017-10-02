@@ -1,10 +1,11 @@
 package observer;
 
-import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import java.util.Date;
 import java.util.function.Consumer;
+
+import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Define a one-to-many dependency between objects so that when one object changes
@@ -26,7 +27,7 @@ public class ObserverTest {
     observable.event();
 
     // then
-    Assertions.assertThat(called[0]).isTrue();
+    assertThat(called[0]).isTrue();
   }
 
   @Test
@@ -42,6 +43,6 @@ public class ObserverTest {
     observable.dateEvent();
 
     // then
-    Assertions.assertThat(date).isNotEqualTo(new Date(0));
+    assertThat(date).isNotEqualTo(new Date(0));
   }
 }

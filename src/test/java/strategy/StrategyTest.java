@@ -1,11 +1,12 @@
 package strategy;
 
-import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
+
+import static org.fest.assertions.Assertions.assertThat;
 
 /**
  * Define a family of algorithms, encapsulate each one, and make them interchangeable.
@@ -27,7 +28,7 @@ public class StrategyTest {
     boolean filtered = errorFilter.test(errorMessage);
 
     // then
-    Assertions.assertThat(filtered).isTrue();
+    assertThat(filtered).isTrue();
   }
 
   @Test
@@ -40,7 +41,7 @@ public class StrategyTest {
     String formattedText = errorFormatter.apply(errorMessage);
 
     // then
-    Assertions.assertThat(formattedText).isEqualTo("ERROR - SOMETHING BAD HAPPENED");
+    assertThat(formattedText).isEqualTo("ERROR - SOMETHING BAD HAPPENED");
   }
 
   @Test
@@ -55,7 +56,7 @@ public class StrategyTest {
     publisher.publishText(console, message, filter, formatter);
 
     // then
-    Assertions.assertThat("ERROR - SOMETHING BAD HAPPENED").isEqualTo(consoleMessage);
+    assertThat("ERROR - SOMETHING BAD HAPPENED").isEqualTo(consoleMessage);
   }
 
   @Test
@@ -70,6 +71,6 @@ public class StrategyTest {
     publisher.publishText(console, message, filter, formatter);
 
     // then
-    Assertions.assertThat("debug - i'am here").isEqualTo(consoleMessage);
+    assertThat("debug - i'am here").isEqualTo(consoleMessage);
   }
 }
