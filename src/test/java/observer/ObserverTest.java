@@ -19,7 +19,9 @@ public class ObserverTest {
     // given
     final Boolean[] called = new Boolean[1];
     MyObservable observable = new MyObservable();
-    MyObservable.EventListener listener = () -> called[0] = true;
+
+    // => ADD LAMBDA LISTENER HERE!
+    MyObservable.EventListener listener = null; // ?
 
     observable.register(listener);
 
@@ -35,9 +37,11 @@ public class ObserverTest {
     // given
     final Date date = new Date(0);
     MyObservable observable = new MyObservable();
-    Consumer<Date> listener = (d) -> date.setTime(d.getTime());
 
-    observable.registerDateListener(listener);
+    // => FILL TYPE AND LAMBDA LISTENER BELOW!
+    // ? listener = ?
+
+    //observable.registerDateListener(listener);
 
     // when
     observable.dateEvent();

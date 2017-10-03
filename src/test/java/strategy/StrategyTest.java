@@ -22,10 +22,12 @@ public class StrategyTest {
   public void an_error_filter_returns_true_if_text_starts_with_ERROR() {
     // given
     String errorMessage = "ERROR - something bad happened";
-    Predicate<String> errorFilter = (text) -> text.startsWith("ERROR");
+
+    // => FILL PREDICATE TYPE AND LAMBDA FUNCTION BELOW!
+    // ? errorFilter = ?
 
     // when
-    boolean filtered = errorFilter.test(errorMessage);
+    boolean filtered = false; // => UNCOMMENT errorFilter.test(errorMessage);
 
     // then
     assertThat(filtered).isTrue();
@@ -35,10 +37,12 @@ public class StrategyTest {
   public void an_error_formatter_returns_the_input_text_in_UPPER_CASE() {
     // given
     String errorMessage = "ERROR - something bad happened";
-    UnaryOperator<String> errorFormatter = (text) -> text.toUpperCase();
+
+    // => FILL UNARY OPERATOR TYPE AND LAMBDA FUNCTION BELOW!
+    // ? errorFormatter = ?
 
     // when
-    String formattedText = errorFormatter.apply(errorMessage);
+    String formattedText = ""; // => UNCOMMENT errorFormatter.apply(errorMessage);
 
     // then
     assertThat(formattedText).isEqualTo("ERROR - SOMETHING BAD HAPPENED");
@@ -48,12 +52,16 @@ public class StrategyTest {
   public void a_text_prefixed_with_ERROR_is_published_in_upper_case() {
     // given
     String message = "ERROR - something bad happened";
-    Predicate<String> filter = (text) -> text.startsWith("ERROR");
-    UnaryOperator<String> formatter = (text) -> text.toUpperCase();
+
+    // => FILL PREDICATE TYPE AND LAMBDA FUNCTION BELOW!
+    // ? filter = ?
+    // => FILL UNARY OPERATOR TYPE AND LAMBDA FUNCTION BELOW!
+    // ? formatter = ?
+
     Publisher publisher = new Publisher();
 
     // when
-    publisher.publishText(console, message, filter, formatter);
+    // => UNCOMMENT publisher.publishText(console, message, filter, formatter);
 
     // then
     assertThat("ERROR - SOMETHING BAD HAPPENED").isEqualTo(consoleMessage);
@@ -63,12 +71,16 @@ public class StrategyTest {
   public void a_text_shorter_than_21_chars_is_published_in_lower_case() {
     // given
     String message = "DEBUG - I'am here";
-    Predicate<String> filter = (text) -> text.length() < 21;
-    UnaryOperator<String> formatter = (text) -> text.toLowerCase();
+
+    // => FILL PREDICATE TYPE AND LAMBDA FUNCTION BELOW!
+    // ? filter = ?
+    // => FILL UNARY OPERATOR TYPE AND LAMBDA FUNCTION BELOW!
+    // ? formatter = ?
+
     Publisher publisher = new Publisher();
 
     // when
-    publisher.publishText(console, message, filter, formatter);
+    // => UNCOMMENT publisher.publishText(console, message, filter, formatter);
 
     // then
     assertThat("debug - i'am here").isEqualTo(consoleMessage);

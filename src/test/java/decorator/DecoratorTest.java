@@ -21,10 +21,12 @@ public class DecoratorTest {
   public void compute_salary_per_month() {
     // given
     float annualSalary = 30000;
-    DoubleUnaryOperator computeSalaryPerMonth = salary -> salary / 12;
+
+    // => FILL TYPE AND LAMBDA FUNCTION BELOW!
+    // ? computeSalaryPerMonth = ?
 
     // when
-    double salaryPerMonth = computeSalaryPerMonth.applyAsDouble(annualSalary);
+    double salaryPerMonth = 0; // => UNCOMMENT! computeSalaryPerMonth.applyAsDouble(annualSalary);
 
     // then
     assertThat(salaryPerMonth).isEqualTo(2500, Delta.delta(0.001f));
@@ -35,18 +37,19 @@ public class DecoratorTest {
     // given
     float annualSalary = 30000;
 
-    DoubleUnaryOperator computeSalaryPerMonth = salary -> salary / 12;
-    DoubleUnaryOperator lessGeneralTax = salary -> salary * 0.8;
-    DoubleUnaryOperator lessRegionalTax = salary -> salary * 0.95;
-    DoubleUnaryOperator lessHealthInsurance = salary -> salary - 200;
-    DoubleUnaryOperator lessTaxes =
+    // => FILL TYPES AND LAMBDA FUNCTIONS BELOW!
+    // ? computeSalaryPerMonth = ?
+    // ? lessGeneralTax = // tax *0.8;
+    // ? lessRegionalTax = // tax *0.95;
+    // ? lessHealthInsurance = // tax -200;
+    /* ? lessTaxes =
       computeSalaryPerMonth
-        .andThen(lessGeneralTax)
-        .andThen(lessRegionalTax)
-        .andThen(lessHealthInsurance);
+        ? then lessGeneralTax
+        ? then lessRegionalTax
+        ? then lessHealthInsurance */
 
     // when
-    double salaryPerMonthLessTaxes = lessTaxes.applyAsDouble(annualSalary);
+    double salaryPerMonthLessTaxes = 0;// => UNCOMMENT! lessTaxes.applyAsDouble(annualSalary);
 
     // then
     assertThat(salaryPerMonthLessTaxes).isEqualTo(1700f, Delta.delta(0.001f));
@@ -65,17 +68,16 @@ public class DecoratorTest {
     // given
     double annualSalary = 30000;
 
-    DoubleUnaryOperator computeSalaryPerMonth = salary -> salary / 12;
-    DoubleUnaryOperator lessGeneralTax = salary -> salary * 0.8;
-    DoubleUnaryOperator lessRegionalTax = salary -> salary * 0.95;
-    DoubleUnaryOperator lessHealthInsurance = salary -> salary - 200;
-    List<DoubleUnaryOperator> taxes = Arrays.asList(new DoubleUnaryOperator[]{
-      computeSalaryPerMonth, lessGeneralTax, lessRegionalTax, lessHealthInsurance
-    });
+    // => FILL TYPES AND LAMBDA FUNCTIONS BELOW!
+    // ? computeSalaryPerMonth = ?
+    // ? lessGeneralTax = // tax *0.8;
+    // ? lessRegionalTax = // tax *0.95;
+    // ? lessHealthInsurance = // tax -200;
+    //List<?> taxes = // List of lambdas
 
     // when
     final MutableDouble salaryPerMonthLessTaxes = new MutableDouble(annualSalary);
-    taxes.forEach(f -> salaryPerMonthLessTaxes.d = f.applyAsDouble(salaryPerMonthLessTaxes.d));
+    //taxes.forEach(?);
 
     // then
     assertThat(salaryPerMonthLessTaxes.d).isEqualTo(1700, Delta.delta(0.001f));
@@ -86,17 +88,18 @@ public class DecoratorTest {
     // given
     float annualSalary = 30000;
 
-    DoubleUnaryOperator computeSalaryPerMonth = salary -> salary / 12;
-    DoubleUnaryOperator lessGeneralTax = salary -> salary * 0.8;
-    DoubleUnaryOperator lessRegionalTax = salary -> salary * 0.95;
-    DoubleUnaryOperator lessHealthInsurance = salary -> salary - 200;
-    Stream<DoubleUnaryOperator> taxes =
-      Stream.of(computeSalaryPerMonth, lessGeneralTax, lessRegionalTax, lessHealthInsurance);
+    // => FILL TYPES AND LAMBDA FUNCTIONS BELOW!
+    // ? computeSalaryPerMonth = ?
+    // ? lessGeneralTax = // tax *0.8;
+    // ? lessRegionalTax = // tax *0.95;
+    // ? lessHealthInsurance = // tax -200;
+    //Stream<?> taxes =
+      //Stream.of(computeSalaryPerMonth, lessGeneralTax, lessRegionalTax, lessHealthInsurance);
 
     // when
-    double salaryPerMonthLessTaxes = taxes.reduce(
-        DoubleUnaryOperator.identity(), DoubleUnaryOperator::andThen)
-      .applyAsDouble(annualSalary);
+    double salaryPerMonthLessTaxes = 0; /* taxes.reduce(
+         ?, ?)
+      .?(annualSalary); */
 
     // then
     assertThat(salaryPerMonthLessTaxes).isEqualTo(1700, Delta.delta(0.001f));
