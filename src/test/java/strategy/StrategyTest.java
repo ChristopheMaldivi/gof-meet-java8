@@ -23,11 +23,14 @@ public class StrategyTest {
     // given
     String errorMessage = "ERROR - something bad happened";
 
-    // => FILL PREDICATE TYPE AND LAMBDA FUNCTION BELOW!
-    // ? errorFilter = ?
+    // Check doc here: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    // - TYPE: Predicate function which receives a String
+    // - LAMBDA: receives a String argument and returns true if text starts with 'ERROR'
+    // TYPE listener = LAMBDA
+    // ? errorFilter =
 
     // when
-    boolean filtered = false; // => UNCOMMENT errorFilter.test(errorMessage);
+    boolean filtered = false; // => UNCOMMENT errorFilter.?(errorMessage);
 
     // then
     assertThat(filtered).isTrue();
@@ -42,7 +45,7 @@ public class StrategyTest {
     // ? errorFormatter = ?
 
     // when
-    String formattedText = ""; // => UNCOMMENT errorFormatter.apply(errorMessage);
+    String formattedText = ""; // => UNCOMMENT errorFormatter.?(errorMessage);
 
     // then
     assertThat(formattedText).isEqualTo("ERROR - SOMETHING BAD HAPPENED");

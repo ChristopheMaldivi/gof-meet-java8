@@ -21,7 +21,8 @@ public class ObserverTest {
     MyObservable observable = new MyObservable();
 
     // => ADD LAMBDA LISTENER HERE!
-    MyObservable.EventListener listener = null; // ?
+    // LAMBDA: no argument and do: 'called[0] = true'
+    MyObservable.EventListener listener = null /* REPLACE null BY LAMBDA */;
 
     observable.register(listener);
 
@@ -33,20 +34,24 @@ public class ObserverTest {
   }
 
   @Test
-  public void date_listener_is_called_when_event_occurs() {
+  public void date_listener_is_called_when_event_occurs_with_current_date() {
     // given
-    final Date date = new Date(0);
+    final Date myDate = new Date(0);
     MyObservable observable = new MyObservable();
 
     // => FILL TYPE AND LAMBDA LISTENER BELOW!
-    // ? listener = ?
+    // Check doc here: https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+    // - TYPE: Date Consumer...
+    // - LAMBDA: receive a 'date' argument and update myDate with the new date: 'myDate.setTime(date.getTime())'
+    // TYPE listener = LAMBDA
 
+    // => ONCE YOU HAVE WRITTEN YOUR LISTENER? UNCOMMENT NEXT LINE AND DO THE IMPLEMENTATION
     //observable.registerDateListener(listener);
 
     // when
     observable.dateEvent();
 
     // then
-    assertThat(date).isNotEqualTo(new Date(0));
+    assertThat(myDate).isNotEqualTo(new Date(0));
   }
 }
